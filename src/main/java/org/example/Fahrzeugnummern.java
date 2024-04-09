@@ -13,7 +13,7 @@ public class Fahrzeugnummern {
     public static void main(String[] args) {
         vehicleInput();
         String vehicleNumber = getVehicleNumber();
-        if (vehicleNumber.length()!=11){
+        if (vehicleNumber.length()!=10){
             System.out.println("Fahrzeugnummer nicht generierbar.");
         }
         else System.out.println("Die generierte Fahrzeugnummer lautet: " + vehicleNumber);
@@ -194,7 +194,6 @@ public class Fahrzeugnummern {
         int series = 0;
         if (locomotiveName.contains("schnellzug") || locomotiveName.contains("schnelltrieb")){
             series = randomNumber(1,20);
-            System.out.println(series);
             if (locomotiveName.contains("tender")){
                 series = randomNumber(60,20);
             }
