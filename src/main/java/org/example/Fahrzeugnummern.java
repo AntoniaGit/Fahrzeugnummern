@@ -13,11 +13,12 @@ public class Fahrzeugnummern {
     public static void main(String[] args) {
         vehicleInput();
         String vehicleNumber = getVehicleNumber();
-        if (vehicleNumber.length()!=11){
+        if (vehicleNumber.length()!=10){
             System.out.println("Fahrzeugnummer nicht generierbar.");
         }
         else System.out.println("Die generierte Fahrzeugnummer lautet: " + vehicleNumber);
     }
+
     private static void vehicleInput(){
         System.out.println("Wie ist die genaue Bezeichnung der Bahn?");
         Scanner sc = new Scanner(System.in).useDelimiter("\\n");
@@ -43,6 +44,7 @@ public class Fahrzeugnummern {
         } while (input.length() < 6);
         return nameCorrecting(sc, input);
     }
+
     private static String nameCorrecting (Scanner sc, String inputName){
         //TODO add more testcases
         String correctedName = inputName.replaceAll("[^a-zA-Z]+","");
@@ -194,7 +196,6 @@ public class Fahrzeugnummern {
         int series = 0;
         if (locomotiveName.contains("schnellzug") || locomotiveName.contains("schnelltrieb")){
             series = randomNumber(1,20);
-            System.out.println(series);
             if (locomotiveName.contains("tender")){
                 series = randomNumber(60,20);
             }
@@ -237,10 +238,12 @@ public class Fahrzeugnummern {
         }
         return series;
     }
+
     private static int randomNumber (int start, int size){
         Random random = new Random();
         return random.nextInt(size) + start;
     }
+
     private static String getSerialNumber(){
         //TODO Add calculation of serial number here
         return String.valueOf(randomNumber(100,100));
